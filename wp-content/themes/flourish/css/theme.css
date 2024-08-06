@@ -15421,7 +15421,6 @@ body {
   flex: 0 0 500px;
   height: calc(100vh - 300px);
   display: flex;
-  flex-direction: column;
   align-items: center;
   line-height: 1.7;
   -webkit-user-select: none;
@@ -15429,7 +15428,6 @@ body {
   user-select: none;
   border-right: 1px solid rgba(0, 0, 0, 0.06);
   background-color: transparent;
-  color: #fff;
 }
 .about-us-page .scroll-trigger-carousel section.horizontal .item:before {
   position: absolute;

@@ -6221,8 +6221,9 @@
             },
             pin: thisPinWrap,
             invalidateOnRefresh: true,
-            // anticipatePin: 1,
+            //anticipatePin: 1,
             scrub: true
+            //markers: true,
           }
         });
       });
