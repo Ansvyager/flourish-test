@@ -15,11 +15,10 @@ get_header();
 $container = get_theme_mod('understrap_container_type');
 ?>
 
-
 <section class="test-page-content">
     <div class="header-content-test background jumbotron-fluid d-flex flex-column justify-content-center">
         <div class="container">
-            <h1 class="display-4 text-white fw-bold">Fluid jumbotron</h1>
+            <h1 class="display-4 text-white fw-bold text-center font-weight-bold">Technical Test</h1>
             <p class="lead text-center text-white fw-bold">Andres Suhendrawan</p>
         </div>
     </div>

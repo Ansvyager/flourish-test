@@ -1,6 +1,5 @@
 <div class="wrap">
     <h1>My Plugin Items</h1>
-
     <form method="post">
         <input type="hidden" name="action" value="create">
         <input type="text" name="item_name" placeholder="Name" required>
@@ -8,7 +7,8 @@
         <input type="text" name="item_office" placeholder="Office" required>
         <input type="number" name="item_age" placeholder="Age" required>
         <input type="date" name="item_start_date" placeholder="Start Date" required>
-        <input type="text" name="item_salary" placeholder="Salary" required>
+        <input type="text" name="item_salary" placeholder="Salary"
+            value="<?php echo esc_attr('$' . number_format(floatval($item->salary ?? 0), 2, '.', ',')); ?>" required>
         <input type="submit" value="Add Item" class="button button-primary">
     </form>
 
@@ -35,7 +35,7 @@
                 <td><?php echo esc_html($item->office); ?></td>
                 <td><?php echo esc_html($item->age); ?></td>
                 <td><?php echo esc_html($item->start_date); ?></td>
-                <td><?php echo esc_html($item->salary); ?></td>
+                <td><?php echo esc_html('$' . number_format(floatval($item->salary), 2, '.', ',')); ?></td>
                 <td><?php echo esc_html($item->status); ?></td>
                 <td>
                     <form method="post" style="display:inline;">
@@ -52,7 +52,8 @@
                         <input type="date" placeholder="start date" name="item_start_date"
                             value="<?php echo esc_attr($item->start_date); ?>" required>
                         <input type="text" placeholder="salary" name="item_salary"
-                            value="<?php echo esc_attr($item->salary); ?>" required>
+                            value="<?php echo esc_attr('$' . number_format(floatval($item->salary), 2, '.', ',')); ?>"
+                            required>
                         <input type="submit" value="Update" class="button button-primary">
                     </form>
                     <?php if ($item->status == 'published') : ?>
@@ -78,17 +79,17 @@
             <?php endforeach; ?>
         </tbody>
     </table>
-</div>
+    </d>
 
-<script>
-<?php if (isset($_POST['action'])) : ?>
-<?php $action = $_POST['action']; ?>
-<?php if ($action === 'create') : ?>
-alert('create success');
-<?php elseif ($action === 'update') : ?>
-alert('update success');
-<?php elseif ($action === 'delete') : ?>
-alert('delete success');
-<?php endif; ?>
-<?php endif; ?>
-</script>
+    <script>
+    <?php if (isset($_POST['action'])) : ?>
+    <?php $action = $_POST['action']; ?>
+    <?php if ($action === 'create') : ?>
+    alert('create success');
+    <?php elseif ($action === 'update') : ?>
+    alert('update success');
+    <?php elseif ($action === 'delete') : ?>
+    alert('delete success');
+    <?php endif; ?>
+    <?php endif; ?>
+    </script>

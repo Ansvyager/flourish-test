@@ -6160,6 +6160,7 @@
     init: function init() {
       general.initGSAP();
       general.initGSAPX();
+      general.NavbarHandler();
     },
     initGSAP: function initGSAP() {
       gsap.registerPlugin(ScrollTrigger);
@@ -6197,33 +6198,35 @@
       requestAnimationFrame(raf);
     },
     initGSAPX: function initGSAPX() {
-      var horizontalSections = gsap.utils.toArray('section.horizontal');
-      horizontalSections.forEach(function (sec, i) {
-        var thisPinWrap = sec.querySelector('.pin-wrap');
-        var thisAnimWrap = thisPinWrap.querySelector('.animation-wrap');
-        var getToValue = function getToValue() {
-          return -(thisAnimWrap.scrollWidth - window.innerWidth);
-        };
-        gsap.fromTo(thisAnimWrap, {
-          x: function x() {
-            return thisAnimWrap.classList.contains('to-right') ? 0 : getToValue();
-          }
-        }, {
-          x: function x() {
-            return thisAnimWrap.classList.contains('to-right') ? getToValue() : 0;
-          },
-          ease: "none",
-          scrollTrigger: {
-            trigger: sec,
-            start: "top top",
-            end: function end() {
-              return "+=" + (thisAnimWrap.scrollWidth - window.innerWidth);
-            },
-            pin: thisPinWrap,
-            invalidateOnRefresh: true,
-            //anticipatePin: 1,
-            scrub: true
-            //markers: true,
+      var fillEl = document.querySelector('.js-fill');
+      var fillEnd = document.querySelector('.js-fill-end');
+
+      // Set up timeline and scrolltrigger
+      var scrollTl = gsap.timeline({
+        scrollTrigger: {
+          startTrigger: fillEl,
+          start: 'center 10%',
+          endTrigger: fillEnd,
+          end: 'top bottom',
+          scrub: 0.35
+        }
+      });
+      scrollTl.to(fillEl, {
+        height: '100vh',
+        width: '100vw',
+        borderRadius: '0'
+      });
+    },
+    NavbarHandler: function NavbarHandler() {
+      document.addEventListener('DOMContentLoaded', function () {
+        var navbarToggler = document.querySelector('.navbar-toggler');
+        var navbar = document.querySelector('#main-nav');
+        navbarToggler.addEventListener('click', function () {
+          if (navbarToggler.getAttribute('aria-expanded') === 'true') {
+            navbar.classList.remove('navbar-active');
+            console.log('active');
+          } else {
+            navbar.classList.add('navbar-active');
           }
         });
       });

@@ -19,11 +19,9 @@ $container = get_theme_mod('understrap_container_type');
         <?php esc_html_e('Main Navigation', 'understrap'); ?>
     </h2>
 
-
     <?php if ('container' === $container) : ?>
     <div class="container">
         <?php endif; ?>
-
 
         <h1>Flourish</h1>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"

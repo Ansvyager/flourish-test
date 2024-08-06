@@ -18,9 +18,14 @@ body {
 }
 
 
-#wrapper-navbar {
+.navbar {
     opacity: 0.5;
     background-color: #343a40 !important;
+    transition: opacity 0.3s ease;
+
+    &.navbar-active {
+        opacity: 1;
+    }
 }
 
 
@@ -123,4 +128,23 @@ body {
 
         }
     }
+}
+
+.wrapper-footer {
+    background-color: #070606;
+    padding: 2rem;
+    display: flex;
+}
+
+@media (max-width: 767px) {
+    .wrapper-footer {
+        ul {
+
+            flex-direction: column;
+            padding: 0rem;
+            line-height: 2.5rem;
+        }
+
+    }
+
 }

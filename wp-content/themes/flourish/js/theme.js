@@ -6136,6 +6136,7 @@
     init: function () {
       general.initGSAP();
       general.initGSAPX();
+      general.NavbarHandler();
     },
     initGSAP: function () {
       gsap.registerPlugin(ScrollTrigger);
@@ -6190,6 +6191,18 @@
         height: '100vh',
         width: '100vw',
         borderRadius: '0'
+      });
+    },
+    NavbarHandler: function () {
+      var navbarToggler = document.querySelector('.navbar-toggler');
+      var navbar = document.querySelector('#main-nav');
+      navbarToggler.addEventListener('click', function () {
+        if (navbarToggler.getAttribute('aria-expanded') === 'true') {
+          navbar.classList.remove('navbar-active');
+          console.log('active');
+        } else {
+          navbar.classList.add('navbar-active');
+        }
       });
     }
   };

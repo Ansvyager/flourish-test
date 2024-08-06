@@ -14732,9 +14732,13 @@ body {
   background-color: #343a40 !important;
 }
 
-#wrapper-navbar {
+.navbar {
   opacity: 0.5;
   background-color: #343a40 !important;
+  transition: opacity 0.3s ease;
+}
+.navbar.navbar-active {
+  opacity: 1;
 }
 
 .test-page-content .header-content-test {
@@ -14820,6 +14824,22 @@ body {
   font-weight: 600;
   text-transform: uppercase;
   font-size: 1vw;
+}
+
+.wrapper-footer {
+  background-color: #070606;
+  padding: 2rem;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+@media (max-width: 767px) {
+  .wrapper-footer ul {
+    -ms-flex-direction: column;
+    flex-direction: column;
+    padding: 0rem;
+    line-height: 2.5rem;
+  }
 }
 
 /*# sourceMappingURL=theme-bootstrap4.css.map */

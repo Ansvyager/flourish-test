@@ -15358,6 +15358,13 @@ figure.woocommerce-product-gallery__wrapper {
   clip: auto;
 }
 
+:root {
+  --c-purple: #3d1166;
+  --c-offwhite: #d5cfb8;
+  --c-yellow: #ffc400;
+  --c-black: #070606;
+}
+
 html,
 body {
   margin: 0;
@@ -15368,9 +15375,13 @@ body {
   background-color: #343a40 !important;
 }
 
-#wrapper-navbar {
+.navbar {
   opacity: 0.5;
   background-color: #343a40 !important;
+  transition: opacity 0.3s ease;
+}
+.navbar.navbar-active {
+  opacity: 1;
 }
 
 .test-page-content .header-content-test {
@@ -15400,65 +15411,71 @@ body {
   background: rgb(29, 29, 29);
   color: white;
 }
-.about-us-page .scroll-trigger-carousel h1, .about-us-page .scroll-trigger-carousel .h1 {
-  font-size: clamp(2rem, 5vw, 8rem);
-  color: #fff;
-  font-weight: bold;
-}
-.about-us-page .scroll-trigger-carousel section.horizontal {
-  overflow-x: hidden;
-}
-.about-us-page .scroll-trigger-carousel section.horizontal .pin-wrap,
-.about-us-page .scroll-trigger-carousel section.horizontal .animation-wrap {
-  display: flex;
-  position: relative;
-  z-index: 1;
+.about-us-page .scroll-trigger-experiences .sticky {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
   height: 100vh;
+  place-items: center;
+  background-color: var(--c-offwhite);
+  overflow: hidden;
 }
-.about-us-page .scroll-trigger-carousel section.horizontal .item {
+.about-us-page .scroll-trigger-experiences .sticky__box {
   position: relative;
-  padding: 150px 80px;
-  flex: 0 0 500px;
-  height: calc(100vh - 300px);
-  display: flex;
-  align-items: center;
-  line-height: 1.7;
-  -webkit-user-select: none;
-  -moz-user-select: none;
-  user-select: none;
-  border-right: 1px solid rgba(0, 0, 0, 0.06);
-  background-color: transparent;
+  grid-column: 4/10;
+  height: -webkit-fit-content;
+  height: -moz-fit-content;
+  height: fit-content;
+  padding: 40px;
 }
-.about-us-page .scroll-trigger-carousel section.horizontal .item:before {
+.about-us-page .scroll-trigger-experiences .sticky__box-fill {
   position: absolute;
-  font-size: 100px;
-  opacity: 0.13;
-  font-weight: bold;
-  z-index: -1;
-  transform: translate(-30px, -50px);
-  line-height: 1;
+  top: 50%;
+  left: 50%;
+  width: 100%;
+  height: 100%;
+  border-radius: 22px;
+  transform: translate(-50%, -50%);
+  background-color: var(--c-yellow);
 }
-.about-us-page .scroll-trigger-carousel section.horizontal .animation-wrap.to-right {
-  counter-reset: item;
-  float: left;
+.about-us-page .scroll-trigger-experiences .sticky p {
+  position: relative;
+  font-size: 3.8rem;
+  line-height: 1.375;
+  font-weight: 600;
+  z-index: 10;
 }
-.about-us-page .scroll-trigger-carousel section.horizontal .animation-wrap.to-left {
-  counter-reset: item 11;
-  float: right;
+.about-us-page .scroll-trigger-experiences .outro {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: var(--c-black);
 }
-.about-us-page .scroll-trigger-carousel section.horizontal .animation-wrap.to-right .item:before {
-  counter-increment: item;
-  content: counter(item);
+.about-us-page .scroll-trigger-experiences .outro__title {
+  font-size: 7vw;
+  color: var(--c-offwhite);
+  margin-bottom: 14px;
 }
-.about-us-page .scroll-trigger-carousel section.horizontal .animation-wrap.to-left .item:before {
-  counter-increment: item -1;
-  content: counter(item);
+.about-us-page .scroll-trigger-experiences .outro__text {
+  color: var(--c-offwhite);
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 1vw;
 }
-.about-us-page .scroll-trigger-carousel section.horizontal .animation-wrap .item:nth-child(2n+2) {
-  align-items: flex-start;
+
+.wrapper-footer {
+  background-color: #070606;
+  padding: 2rem;
+  display: flex;
 }
-.about-us-page .scroll-trigger-carousel section.horizontal .animation-wrap .item:nth-child(4n+4) {
-  align-items: flex-end;
+
+@media (max-width: 767px) {
+  .wrapper-footer ul {
+    flex-direction: column;
+    padding: 0rem;
+    line-height: 2.5rem;
+  }
 }
 
 /*# sourceMappingURL=theme.css.map */
