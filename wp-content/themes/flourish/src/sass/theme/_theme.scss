@@ -19,7 +19,7 @@ body {
 
 
 .navbar {
-    opacity: 0.5;
+    opacity: 0.8;
     background-color: #343a40 !important;
     transition: opacity 0.3s ease;
 
@@ -130,12 +130,6 @@ body {
     }
 }
 
-.wrapper-footer {
-    background-color: #070606;
-    padding: 2rem;
-    display: flex;
-}
-
 @media (max-width: 767px) {
     .wrapper-footer {
         ul {
@@ -147,4 +141,10 @@ body {
 
     }
 
+}
+
+.wrapper-footer {
+    background-color: #070606;
+    padding: 2rem;
+    display: flex;
 }

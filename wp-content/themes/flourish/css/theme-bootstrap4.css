@@ -14733,7 +14733,7 @@ body {
 }
 
 .navbar {
-  opacity: 0.5;
+  opacity: 0.8;
   background-color: #343a40 !important;
   transition: opacity 0.3s ease;
 }
@@ -14826,13 +14826,6 @@ body {
   font-size: 1vw;
 }
 
-.wrapper-footer {
-  background-color: #070606;
-  padding: 2rem;
-  display: -ms-flexbox;
-  display: flex;
-}
-
 @media (max-width: 767px) {
   .wrapper-footer ul {
     -ms-flex-direction: column;
@@ -14840,6 +14833,12 @@ body {
     padding: 0rem;
     line-height: 2.5rem;
   }
+}
+.wrapper-footer {
+  background-color: #070606;
+  padding: 2rem;
+  display: -ms-flexbox;
+  display: flex;
 }
 
 /*# sourceMappingURL=theme-bootstrap4.css.map */

@@ -1,7 +1,7 @@
 <?php
 
 /**
- * Template Name: Test
+ * Template Name: Homepage
  *
  * This template can be used to override the default template and sidebar setup
  *

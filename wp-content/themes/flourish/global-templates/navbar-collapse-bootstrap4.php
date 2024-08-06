@@ -22,8 +22,6 @@ $container = get_theme_mod('understrap_container_type');
     <?php if ('container' === $container) : ?>
     <div class="container">
         <?php endif; ?>
-
-        <h1>Flourish</h1>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavDropdown"
             aria-controls="navbarNavDropdown" aria-expanded="false"
             aria-label="<?php esc_attr_e('Toggle navigation', 'understrap'); ?>">
