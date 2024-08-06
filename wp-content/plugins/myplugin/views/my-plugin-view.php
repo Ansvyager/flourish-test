@@ -1,4 +1,11 @@
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.css">
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.24/css/dataTables.bootstrap4.css">
+
 <div class="wrap">
+    <div id="action-alert" class="alert" role="alert" style="display: none;">
+        <!-- This content will be dynamically updated -->
+    </div>
+
     <h1>My Plugin Items</h1>
     <form method="post">
         <input type="hidden" name="action" value="create">
@@ -7,8 +14,7 @@
         <input type="text" name="item_office" placeholder="Office" required>
         <input type="number" name="item_age" placeholder="Age" required>
         <input type="date" name="item_start_date" placeholder="Start Date" required>
-        <input type="text" name="item_salary" placeholder="Salary"
-            value="<?php echo esc_attr('$' . number_format(floatval($item->salary ?? 0), 2, '.', ',')); ?>" required>
+        <input type="text" name="item_salary" placeholder="Salary" required>
         <input type="submit" value="Add Item" class="button button-primary">
     </form>
 
@@ -51,9 +57,8 @@
                             value="<?php echo esc_attr($item->age); ?>" required>
                         <input type="date" placeholder="start date" name="item_start_date"
                             value="<?php echo esc_attr($item->start_date); ?>" required>
-                        <input type="text" placeholder="salary" name="item_salary"
-                            value="<?php echo esc_attr('$' . number_format(floatval($item->salary), 2, '.', ',')); ?>"
-                            required>
+                        <input type="text" name="item_salary" placeholder="Salary"
+                            value="<?php echo esc_attr($item->salary); ?>" required>
                         <input type="submit" value="Update" class="button button-primary">
                     </form>
                     <?php if ($item->status == 'published') : ?>
@@ -81,7 +86,7 @@
     </table>
     </d>
 
-    <script>
+    <!-- <script>
     <?php if (isset($_POST['action'])) : ?>
     <?php $action = $_POST['action']; ?>
     <?php if ($action === 'create') : ?>
@@ -92,4 +97,44 @@
     alert('delete success');
     <?php endif; ?>
     <?php endif; ?>
+    </script> -->
+    <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        <?php if (isset($_POST['action'])) : ?>
+        <?php $action = $_POST['action']; ?>
+        var alertMessage = '';
+        var alertClass = 'alert-primary';
+
+        <?php if ($action === 'create') : ?>
+        alertMessage = 'Create success';
+        <?php elseif ($action === 'update') : ?>
+        alertMessage = 'Update success';
+        <?php elseif ($action === 'delete') : ?>
+        alertMessage = 'Delete success';
+        alertClass = 'alert-danger';
+        <?php elseif ($action === 'publish') : ?>
+        alertMessage = 'Data has Published';
+        <?php elseif ($action === 'unpublish') : ?>
+        alertMessage = 'Data Unpublished';
+        alertClass = 'alert-danger';
+        <?php endif; ?>
+
+        if (alertMessage) {
+            var alertDiv = document.getElementById('action-alert');
+            alertDiv.textContent = alertMessage;
+            alertDiv.className = 'alert ' + alertClass; // Update class
+            alertDiv.style.display = 'block';
+
+            // Hide the alert after 3 seconds
+            setTimeout(function() {
+                alertDiv.style.display = 'none';
+            }, 5000);
+        }
+        <?php endif; ?>
+    });
     </script>
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/2.1.3/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.1.3/js/dataTables.bootstrap4.js"></script>
