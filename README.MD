@@ -1,5 +1,9 @@
 Hai ! Welcome to my repository !
 
+## clone
+- Clone the repository
+- go to main branch, git checkout main
+
 ## install understrap
 - go to flourish folder wp-content/themes/flourish
 - run npm install
