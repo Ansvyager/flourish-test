@@ -14,3 +14,9 @@ Hai ! Welcome to my repository !
 ## Banner images
 If Banner image in homepage doesn't show i will, here to fix
 - put folder image i give in email to wp-content/themes/flourish
+
+# Shortcode
+- go to pages
+- create/edit
+- select template "Homepage"
+- input shortcode this shortcode [my_plugin_published_items]
