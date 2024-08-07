@@ -20,3 +20,7 @@ If Banner image in homepage doesn't show i will, here to fix
 - create/edit
 - select template "Homepage"
 - input shortcode this shortcode [my_plugin_published_items]
+
+# Login WP-ADMIN
+- username: Andres
+- password: pJ7XUaB#QBG^@&w4giEGpzl8
