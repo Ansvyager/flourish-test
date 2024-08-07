@@ -14742,7 +14742,7 @@ body {
 }
 
 .test-page-content .header-content-test {
-  background: url("../img/tech.jpg") no-repeat;
+  background: url("../image/tech.jpg") no-repeat;
   background-size: cover;
   height: 100vh;
   width: 100%;
